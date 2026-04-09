@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+
+  mongo:
+    image: mongo
+    container_name: soccer-mongo
+    ports:
+      - "27017:27017"
+
+  app:
+    build: .
+    container_name: soccer-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
